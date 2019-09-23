@@ -5,7 +5,11 @@
   "versionCode": 1,
   "icon": "/Common/jiuwei.png",
   "minPlatformVersion": 1040,
-  "features": [],
+  "features": [
+    {
+      "name": "system.router"
+    }
+  ],
   "permissions": [
     {
       "origin": "*"
@@ -17,6 +21,10 @@
     "pages": {
       "Hello": {
         "component": "hello"
+      },
+      "Page2": {
+        "component": "NextPage",
+        "path": "/Page2"
       }
     }
   },

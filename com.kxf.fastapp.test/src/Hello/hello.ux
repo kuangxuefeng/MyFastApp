@@ -1,9 +1,10 @@
 <template>
     <!-- Only one root node is allowed in template. -->
     <div class="container">
-        <text class="title">
+        <text class="title" onclick="press">
             Hello {{title}}
         </text>
+        <a class="url" href="https://www.baidu.com/">访问百度</a>
     </div>
 </template>
 
@@ -17,12 +18,34 @@
     .title {
         font-size: 100px;
     }
+
+    .url {
+        font-size: 100px;
+        background-color: #00ff00;
+    }
 </style>
 
 <script>
+import router from '@system.router'
   module.exports = {
     data: {
       title: 'World'
+    },
+    press:function (e) {
+      this.title = 'XXX'
+      router.push({
+          uri: '/Page2',
+          params: {body: " test send message"},
+          success: function () {
+              console.log('launchApp success .');
+          },
+          fail: function (error) {
+              console.log('launchApp fail :' + error.message);
+          },
+          complete: function () {
+              console.log('launchApp complete.');
+          }
+      })
     },
     onInit() {
       this.$page.setTitleBar({
