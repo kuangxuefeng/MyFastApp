@@ -1,10 +1,13 @@
 <template>
     <!-- Only one root node is allowed in template. -->
     <div class="container">
-        <text class="title" onclick="press">
+        <text class="title">
             Hello {{title}}
         </text>
         <a class="url" href="https://www.baidu.com/">访问百度</a>
+        <text class="title" onclick="press">
+            点我跳转下一页
+        </text>
     </div>
 </template>
 
@@ -32,7 +35,6 @@ import router from '@system.router'
       title: 'World'
     },
     press:function (e) {
-      this.title = 'XXX'
       router.push({
           uri: '/Page2',
           params: {body: " test send message"},
